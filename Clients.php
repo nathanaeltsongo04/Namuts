@@ -1,12 +1,12 @@
 <?php $title = "Namut's"; ?>
 
-<?php $Subtitle = "Clients"; ?>
+<?php $pageTitle = "Clients"; ?>
 
-<?php $pageTitle = "Liste Des Clients"; ?>
+<?php $Subtitle = "Liste Des Clients"; ?>
 
 <?php ob_start(); ?>
 
-<?php require_once 'view/approvisionnements.php' ?>
+<?php require_once 'view/clients.php' ?>
 
 <?php $content = ob_get_clean(); ?>
 

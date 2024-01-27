@@ -3,7 +3,7 @@
          <div class="row">
              <!-- Recent Sales -->
              <div class="col-12">
-                 <div class="card recent-sales overflow-auto">
+                 <div class="card recent-sales overflow-auto ">
 
                      <div class="filter">
                          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -21,7 +21,7 @@
                      <div class="card-body">
                          <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
-                         <table class="table table-borderless datatable">
+                         <table class="table table-borderless datatable ">
                              <thead>
                                  <tr>
                                      <th scope="col">#</th>

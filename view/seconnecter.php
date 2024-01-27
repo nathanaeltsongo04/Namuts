@@ -14,27 +14,24 @@
                                     connecter</p>
                             </div>
 
-                            <form class="row g-3 ">
+                            <form class="row g-3" method="POST" action="tableau_de_bord.php">
                                 <div class=" col-md-12 mb-3">
 
                                     <div class="input-group has-validation">
-                                        <input type="text" name="nomdutilisateur" class="form-control" id="yourPassword"
-                                            placeholder="Nom d'Utilisateur" required>
+                                        <input type="text" name="nomdutilisateur" class="form-control" id="yourPassword" placeholder="Nom d'Utilisateur" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
 
-                                    <input type="password" name="password" class="form-control" id="yourPassword"
-                                        placeholder="Mot de Passe" required>
+                                    <input type="password" name="password" class="form-control" id="yourPassword" placeholder="Mot de Passe" required>
                                     <div class="invalid-feedback">Please enter your password!</div>
                                 </div>
 
 
                                 <div class="col-md-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" value="true"
-                                            id="rememberMe">
+                                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
                                         <label class="form-check-label" for="rememberMe">Remember me</label>
                                     </div>
                                 </div>

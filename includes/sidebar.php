@@ -16,7 +16,7 @@
             </a>
         </li><!-- End Approvisionnements Page Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="Clients.php">
                 <i class="bi bi-people"></i>
                 <span>Clients</span>
             </a>
@@ -48,8 +48,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -83,7 +82,7 @@
             </ul>
         </li><!-- End Stock Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="Produits.php">
                 <i class="bi bi-person"></i>
                 <span>Produits</span>
             </a>
