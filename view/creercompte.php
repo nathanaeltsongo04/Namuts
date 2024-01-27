@@ -15,26 +15,35 @@
                                 <div class=" col-md-12 mb-2">
 
                                     <div class="input-group has-validation">
-                                        <input type="text" name="nomdutilisateur" class="form-control" id="yourPassword" placeholder="Code Utilisateur" required>
+                                        <input type="text" name="codeutilisateur" class="form-control" id="yourPassword"
+                                            placeholder="Code Utilisateur" required>
                                     </div>
                                 </div>
                                 <div class=" col-md-12 mb-2">
 
                                     <div class="input-group has-validation">
-                                        <input type="text" name="nomdutilisateur" class="form-control" id="yourPassword" placeholder="Nom d'Utilisateur" required>
+                                        <input type="text" name="nomdutilisateur" class="form-control" id="yourPassword"
+                                            placeholder="Nom d'Utilisateur" required>
                                     </div>
                                 </div>
+                                <div class="col-md-12 mb-2">
 
-                                <div class="col-md-12 mb-3">
-
-                                    <input type="password" name="password" class="form-control" id="yourPassword" placeholder="Mot de Passe" required>
+                                    <input type="password" name="confirmermotdepasse" class="form-control"
+                                        id="yourPassword" placeholder="Mot de Passe" required>
                                     <div class="invalid-feedback">Please enter your password!</div>
                                 </div>
+                                <div class="col-md-12 mb-3">
+
+                                    <input type="password" name="motdepasse" class="form-control" id="yourPassword"
+                                        placeholder="Confirmer le Mot de Passe" required>
+                                    <div class="invalid-feedback">Please enter your password!</div>
+                                </div>
+
                                 <div class="col-md-12 text-center">
                                     <button class="btn btn-primary w-50 fw-bold" type="submit">Créer</button>
                                 </div>
                                 <div class="col-md-12 text-center">
-                                    <p class="small mb-0">J'ai un Compte? <a href="Se_Connecter.php"><b>Se
+                                    <p class="small mb-0">J'ai un Compte? <a href="Se_Connecter.php"><b> Se
                                                 Connecter</b></a></p>
                                 </div>
                             </form>
