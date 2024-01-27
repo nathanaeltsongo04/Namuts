@@ -1,2 +1,2 @@
 <?php
-header('location:./Tableau_de_Bord.php');
+header('location:./Se_Connecter.php');
