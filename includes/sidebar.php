@@ -21,6 +21,12 @@
                 <span>Clients</span>
             </a>
         </li><!-- End Clients Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="Devises.php">
+                <i class="bi bi-currency-exchange "></i>
+                <span>Devises</span>
+            </a>
+        </li><!-- End Devises Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -48,8 +54,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
