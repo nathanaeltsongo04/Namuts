@@ -22,13 +22,6 @@
             </a>
         </li><!-- End Clients Page Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="Devises.php">
-                <i class="bi bi-currency-exchange "></i>
-                <span>Devises</span>
-            </a>
-        </li><!-- End Devises Page Nav -->
-
-        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>Factures</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -54,7 +47,8 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -95,6 +89,29 @@
         </li><!-- End Produits Page Nav -->
 
         <li class="nav-heading">Autres</li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#configuration" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-gear"></i><span>Configurations</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="configuration" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="">
+                        <i class="bi bi-circle"></i><span>Catégories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bi bi-circle"></i><span>Devises</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Unités.php">
+                        <i class="bi bi-circle"></i><span>Unités</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li><!-- End Stock Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="users-profile.html">

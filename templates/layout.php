@@ -52,13 +52,13 @@
 
         <main id="main" class="main">
             <div class="pagetitle">
-                <h1><b>Tableau de bord</b></h1>
+                <h1>Tableau De Bord</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">
-                                <?= $pageTitle ?>
+                                <?= $Subtitle ?>
                             </a></li>
-                        <li class="breadcrumb-item active"><?= $Subtitle ?></li>
+                        <li class="breadcrumb-item active"><?= $pageTitle ?></li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
