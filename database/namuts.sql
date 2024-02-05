@@ -1,8 +1,8 @@
---DROP DATABASE IF EXISTS NAMUTS_DB;
+DROP DATABASE IF EXISTS NAMUTS_DB;
 
---CREATE DATABASE NAMUTS_DB;
+CREATE DATABASE NAMUTS_DB;
 
---USE NAMUTS_DB;
+USE NAMUTS_DB;
 
 CREATE TABLE FOURNISSEURS (
 	CODEFOURNISSEUR VARCHAR(15) NOT NULL,
@@ -363,7 +363,16 @@ END;
 -- ====================================PROCEDURE DE GESTION FOURNISSEURS
 DROP PROCEDURE IF EXISTS Gestion_fournisseurs;
 DELIMITER //
-CREATE PROCEDURE Gestion_fournisseurs(IN type ENUM('INSERT','UPDATE','DELETE'),in codefourni varchar(14),in nom TEXT,in Prenom TEXT,in email TEXT,in teelphone TEXT,in adresse TEXT, IN postnom text,in auteur text)
+CREATE PROCEDURE Gestion_fournisseurs(
+    IN type ENUM('INSERT','UPDATE','DELETE'),
+    in codefourni varchar(14),
+    in nom TEXT,
+    in Prenom TEXT,
+    in email TEXT,
+    in teelphone TEXT,
+    in adresse TEXT, 
+    IN postnom text,
+    in auteur text)
 BEGIN
 DECLARE prefix VARCHAR(8); -- Modified prefix length to accommodate month
     DECLARE year VARCHAR(4);
@@ -452,7 +461,17 @@ DELIMITER //
 
 -- ===================== GESTIONS CLIENTS ================================
 DELIMITER //
-CREATE PROCEDURE gestion_clients(IN type ENUM('INSERT','UPDATE','DELETE'),in idClient varchar(14),IN noms TEXT,IN POSTNOM TEXT,in prenoms TEXT,in phones TEXT,in mails TEXT,in adresses TEXT,IN ACCOMPTE DECIMAL(10, 4),IN AUTEUR TEXT)
+CREATE PROCEDURE gestion_clients(
+    IN type ENUM('INSERT','UPDATE','DELETE'),
+    in idClient varchar(14),
+    IN noms TEXT,
+    IN POSTNOM TEXT,
+    in prenoms TEXT,
+    in phones TEXT,
+    in mails TEXT,
+    in adresses TEXT,
+    IN ACCOMPTE DECIMAL(10, 4),
+    IN AUTEUR TEXT)
 BEGIN
 DECLARE prefix VARCHAR(8); -- Modified prefix length to accommodate month
     DECLARE year VARCHAR(4);
@@ -496,7 +515,12 @@ DELIMITER //
 
 -- PROCEDURE GESTION DU DEPOT
 DELIMITER //
-CREATE PROCEDURE `Gestion_depot` (IN `MatricProduits` INT, IN `quantite` INT, IN `type_operation` ENUM('ENTREE','SORTIE','RETOUR'), IN `PAu` FLOAT,IN PRIX_VENTE_UNITAIRE DECIMAL(10, 4))
+CREATE PROCEDURE `Gestion_depot` (
+    IN `MatricProduits` INT, 
+    IN `quantite` INT, 
+    IN `type_operation` ENUM('ENTREE','SORTIE','RETOUR'), 
+    IN `PAu` FLOAT,
+    IN PRIX_VENTE_UNITAIRE DECIMAL(10, 4))
    BEGIN
     DECLARE stock_actuel INT;
     declare prix_actuel float;
@@ -574,7 +598,11 @@ DELIMITER //
 
 -- GESTION STOCKS MAGASIN
 DELIMITER //
-CREATE PROCEDURE `gestion_magasin` (IN `MatricProduits` INT, IN `quantite` INT, IN `type_operation` ENUM('ENTREE','SORTIE','RETOUR'), IN `PAu` FLOAT)
+CREATE PROCEDURE `gestion_magasin` (
+    IN `MatricProduits` INT, 
+    IN `quantite` INT, 
+    IN `type_operation` ENUM('ENTREE','SORTIE','RETOUR'), 
+    IN `PAu` FLOAT)
    BEGIN
     DECLARE stock_actuel INT;
     declare prix_actuel float;
@@ -739,7 +767,14 @@ DELIMITER //
 -- PROCEDURE ================================ ================================
 
 DELIMITER //
-CREATE PROCEDURE gestion_pay_client(IN type ENUM('INSERT','UPDATE','DELETE'),in codePay varchar(14),in Mode_payement varchar(50),in Montant_Paye decimal(10,4),in Operation varchar(50),in Facture_Vente varchar(14),in DEVISE varchar(14))
+CREATE PROCEDURE gestion_pay_client(
+    IN type ENUM('INSERT','UPDATE','DELETE'),
+    in codePay varchar(14),
+    in Mode_payement varchar(50),
+    in Montant_Paye decimal(10,4),
+    in Operation varchar(50)
+    ,in Facture_Vente varchar(14),
+    in DEVISE varchar(14))
 BEGIN
 DECLARE prefix VARCHAR(8); -- Modified prefix length to accommodate month
     DECLARE year VARCHAR(4);
@@ -783,7 +818,9 @@ DELIMITER //
 
 -- gestion facture achat
 DELIMITER //
-CREATE PROCEDURE gestion_fact_achat(IN type ENUM('INSERT','UPDATE','DELETE'),in codefacture varchar(14),in Fournisseurs varchar(50),in dates varchar(20))
+CREATE PROCEDURE gestion_fact_achat(
+    IN type ENUM('INSERT','UPDATE','DELETE'),
+    in codefacture varchar(14),in Fournisseurs varchar(50),in dates varchar(20),IN AUTEUR TEXT)
 BEGIN
 DECLARE prefix VARCHAR(8); -- Modified prefix length to accommodate month
     DECLARE year VARCHAR(4);
@@ -812,10 +849,10 @@ if type = 'INSERT' THEN
     -- Générer la clé primaire finale
     SET primaryKey = CONCAT(prefix, year, month, LPAD(counter, 4, '0'));
 
-INSERT INTO factureachat (IdFacture,Fournisseurs,dateFacturation) VALUES (
-primaryKey, Fournisseurs, dates);
+INSERT INTO factureachat (IdFacture,Fournisseurs,dateFacturation,AUTEUR) VALUES (
+primaryKey, Fournisseurs, dates,AUTEUR);
 ELSEIF type = 'UPDATE' THEN
-UPDATE factureachat SET Fournisseurs=Fournisseurs,dateFacturation=dates
+UPDATE factureachat SET Fournisseurs=Fournisseurs,dateFacturation=dates,AUTEUR=AUTEUR
 WHERE IdFacture=codefacture;
 
 ELSEIF type = 'DELETE' THEN
@@ -826,7 +863,13 @@ DELIMITER //
 
 -- GESTION FACTURE VENTE
 DELIMITER //
-CREATE PROCEDURE gestion_fact_vente(IN type ENUM('INSERT','UPDATE','DELETE'),in coteVente varchar(14),in client varchar(50),in date_facture varchar(20))
+CREATE PROCEDURE gestion_fact_vente(
+    IN type ENUM('INSERT','UPDATE','DELETE'),
+    in coteVente varchar(14),
+    in client varchar(50),
+    in date_facture varchar(20),
+    IN AUTEUR TEXT
+    )
 BEGIN
 DECLARE prefix VARCHAR(8); -- Modified prefix length to accommodate month
     DECLARE year VARCHAR(4);
@@ -855,10 +898,10 @@ if type = 'INSERT' THEN
     -- Générer la clé primaire finale
     SET primaryKey = CONCAT(prefix, year, month, LPAD(counter, 4, '0'));
 
-INSERT INTO facture_vente (MatriculeVente,client,date_facture) VALUES (
-primaryKey, client, date_facture);
+INSERT INTO facture_vente (MatriculeVente,client,date_facture,AUTEUR) VALUES (
+primaryKey, client, date_facture,AUTEUR);
 ELSEIF type = 'UPDATE' THEN
-UPDATE facture_vente SET client=client,date_facture=date_facture
+UPDATE facture_vente SET client=client,date_facture=date_facture,AUTEUR=AUTEUR
 WHERE MatriculeVente=coteVente;
 
 ELSEIF type = 'DELETE' THEN
