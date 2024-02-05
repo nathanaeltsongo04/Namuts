@@ -17,13 +17,13 @@
         </li><!-- End Approvisionnements Page Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="Clients.php">
-                <i class="bi bi-people"></i>
+                <i class="bi bi-people-fill"></i>
                 <span>Clients</span>
             </a>
         </li><!-- End Clients Page Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Factures</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Factures</span><i class="bi bi-chevron-right ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -40,15 +40,14 @@
         </li><!-- End Factures Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="users-profile.html">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-person-fill"></i>
                 <span>Fournisseurs</span>
             </a>
         </li><!-- End Fournisseurs Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i class="bi bi-chevron-right ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -61,7 +60,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-shop"></i><span>Stock</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-shop"></i><span>Stock</span><i class="bi bi-chevron-right ms-auto"></i>
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -83,7 +82,7 @@
         </li><!-- End Stock Nav -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="Produits.php">
-                <i class="bi bi-box"></i>
+                <i class="bi bi-box-fill"></i>
                 <span>Produits</span>
             </a>
         </li><!-- End Produits Page Nav -->
@@ -91,7 +90,7 @@
         <li class="nav-heading">Autres</li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#configuration" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gear"></i><span>Configurations</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-gear"></i><span>Configurations</span><i class="bi bi-chevron-right ms-auto"></i>
             </a>
             <ul id="configuration" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>

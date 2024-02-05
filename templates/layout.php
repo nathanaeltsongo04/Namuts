@@ -31,6 +31,8 @@
         <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
         <!-- =======================================================
