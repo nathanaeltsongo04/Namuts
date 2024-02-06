@@ -1,38 +1,42 @@
 <?php
 require('../model/db_connection.php');
-require('../model/Unites.php');
+require('../model/Devises.php');
 
-$data = new unites();
+$data = new devises();
 $auteur = $_SESSION['postnom'] . " " . $_SESSION['prenom'];
 
 if (isset($_POST['save'])) {
     try {
         $data->setOPERATION('INSERT');
-        $data->setCODEUNITE(NULL);
+        $data->setCODEDEVISE(NULL);
         $data->setDESIGNATION(ucwords($_POST['designation']));
         $data->setSIGLE(strtoupper($_POST['sigle']));
+        $data->setTAUX($_POST['taux']);
+        $data->setSYMBOLE($_POST['symbole']);
         $data->setAuteur(ucwords($auteur));
-        $data->GESTION_UNITE();
-        header('location:../Unités.php?msg=true&info=Added Successfully');
+        $data->GESTION_DEVISE();
+        header('location:../Devises.php?msg=true&info=Added Successfully');
     } catch (Exception $e) {
         return $e;
     }
 } elseif (isset($_GET['supprimer'])) {
     try {
 
-        header('location:../Unités.php?msg=true&info=Deleted Successful');
+        header('location:../Devises.php?msg=true&info=Deleted Successful');
     } catch (Exception $e) {
         return $e;
     }
 } elseif (isset($_POST['update'])) {
     try {
         $data->setOPERATION('UPDATE');
-        $data->setCODEUNITE($_POST['codeunite']);
+        $data->setCODEDEVISE($_POST['codedevise']);
         $data->setDESIGNATION(ucwords($_POST['designation']));
         $data->setSIGLE(strtoupper($_POST['sigle']));
+        $data->setTAUX($_POST['taux']);
+        $data->setSYMBOLE($_POST['symbole']);
         $data->setAuteur(ucwords($auteur));
-        $data->GESTION_UNITE();
-        header('location:../Unités.php?msg=true&info=Updated Successfully');
+        $data->GESTION_DEVISE();
+        header('location:../Devises.php?msg=true&info=Updated Successfully');
     } catch (Exception $e) {
         return $e;
     }

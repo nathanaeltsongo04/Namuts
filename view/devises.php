@@ -1,8 +1,8 @@
      <?php
         require('./model/db_connection.php');
-        require('./model/Unites.php');
+        require('./model/Devises.php');
 
-        $data = new unites();
+        $data = new Devises();
         $all = $data->afficher();
         if (isset($_GET['msg']) == 'true') {
         ?>
@@ -14,7 +14,7 @@
                  showConfirmButton: false,
                  timer: 2800
              }).then(function() {
-                 location.replace('Unités.php');
+                 location.replace('Devises.php');
              });
          </script>
      <?php } ?>
@@ -45,9 +45,11 @@
                              <table class="table table-borderless datatable table-responsive table table-striped">
                                  <thead>
                                      <tr>
-                                         <th class="ms-2" scope="row">Code</th>
                                          <th scope="col">Désignation</th>
                                          <th scope="col">Sigle</th>
+                                         <th scope="col">Taux</th>
+                                         <th scope="col">Symbole</th>
+                                         <th scope="col">Date Taux</th>
                                          <th scope="col">Auteur</th>
                                          <th scope="col">Action</th>
                                      </tr>
@@ -57,12 +59,14 @@
                                         foreach ($all as $key => $val) {
                                         ?>
                                          <tr>
-                                             <th scope="row"><?= $val['CODEUNITE'] ?></th>
                                              <td><?= $val['DESIGNATION'] ?></td>
                                              <td><?= $val['SIGLE'] ?></td>
+                                             <td><?= $val['TAUX'] ?></td>
+                                             <td><?= $val['SYMBOLE'] ?></td>
+                                             <td><?= $val['DATE_TAUX'] ?></td>
                                              <td><?= $val['AUTEUR'] ?></td>
-                                             <td><span data-id='<?= $val['CODEUNITE'] ?>' class="badge bg-success elementinfo "><i class="bi bi-pencil-fill "></i></span>
-                                                 <span data-id='<?= $val['CODEUNITE'] ?>' class="badge bg-danger elementinfo "><i class="bi bi-trash-fill "></i></span>
+                                             <td><span data-id='<?= $val['CODEDEVISE'] ?>' class="badge bg-success elementinfo "><i class="bi bi-pencil-fill "></i></span>
+                                                 <span data-id='<?= $val['CODEDEVISE'] ?>' class="badge bg-danger elementinfo "><i class="bi bi-trash-fill "></i></span>
 
                                              </td>
                                          </tr>
@@ -79,16 +83,16 @@
              </div><!-- End Recent Sales -->
          </div>
      </div><!-- End Left side columns -->
-     <!-- =====================================FORMULAIRE D'INSERTION UNITE=============================-->
+     <!-- =====================================FORMULAIRE D'INSERTION DEVISE=============================-->
      <!-- Modal -->
      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-md modal-dialog-centered ">
              <div class="modal-content  ">
                  <div class="modal-header border-0 ">
-                     <h5 class="modal-title fw-bold text-primary " id="exampleModalLabel">Nouvelle Unité</h5>
+                     <h5 class="modal-title fw-bold text-primary " id="exampleModalLabel">Nouvelle Devise</h5>
                      <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
-                 <form class="row g-3" method="POST" action="./controller/Unites.php">
+                 <form class="row g-3" method="POST" action="./controller/Devises.php">
                      <div class="modal-body">
                          <div class="row justify-content-center">
                              <div class=" col-md-10 mb-4 ">
@@ -98,7 +102,15 @@
                              </div>
                              <div class="col-md-10 mb-4">
                                  <input type="text" name="sigle" class="form-control" id="yourPassword" placeholder="Sigle" required>
-                                 <div class="invalid-feedback">Please enter your password!</div>
+
+                             </div>
+                             <div class="col-md-10 mb-4">
+                                 <input type="number" min="0" step=".01" name="taux" class="form-control" id="yourPassword" placeholder="2000" required>
+
+                             </div>
+                             <div class="col-md-10 mb-4">
+                                 <input type="text" name="symbole" class="form-control" id="yourPassword" placeholder="Symbole ($)" required>
+
                              </div>
                              <div class="col-md-12 text-center">
                                  <button name="save" class="btn btn-primary w-50 fw-bold" type="submit">Enregistrer</button>
@@ -109,16 +121,16 @@
              </div>
          </div>
      </div>
-     <!-- =====================================FORMULAIRE DE MODIFICATION UNITE=============================-->
+     <!-- =====================================FORMULAIRE DE MODIFICATION DEVISE=============================-->
      <!-- Modal -->
      <div class="modal fade" id="exampleModalmodification" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-md modal-dialog-centered ">
              <div class="modal-content  ">
                  <div class="modal-header border-0 ">
-                     <h5 class="modal-title fw-bold text-success " id="exampleModalLabel">Modification Unité</h5>
+                     <h5 class="modal-title fw-bold text-success " id="exampleModalLabel">Modification Devise</h5>
                      <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
-                 <form class="row g-3" method="POST" action="./controller/Unites.php">
+                 <form class="row g-3" method="POST" action="./controller/Devises.php">
                      <div class="modal-body">
 
                      </div>
@@ -130,13 +142,13 @@
      <script type='text/javascript'>
          $(document).ready(function() {
              $('.elementinfo').click(function() {
-                 var codeunite = $(this).data('id');
+                 var codedevise = $(this).data('id');
 
                  $.ajax({
-                     url: './controller/modal_loading/Unites.php',
+                     url: './controller/modal_loading/Devises.php',
                      type: 'POST',
                      data: {
-                         codeunite: codeunite
+                         codedevise: codedevise
                      },
                      success: function(response) {
                          $('.modal-body').html(response);

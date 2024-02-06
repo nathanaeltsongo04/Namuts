@@ -94,12 +94,12 @@
             </a>
             <ul id="configuration" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
+                    <a href="Catégories.php">
                         <i class="bi bi-circle"></i><span>Catégories</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="Devises.php">
                         <i class="bi bi-circle"></i><span>Devises</span>
                     </a>
                 </li>

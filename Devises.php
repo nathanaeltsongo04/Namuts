@@ -1,0 +1,13 @@
+<?php $title = "Namut's"; ?>
+
+<?php $pageTitle = "Tableau de bord"; ?>
+
+<?php $Subtitle = "Liste des Devises"; ?>
+
+<?php ob_start(); ?>
+
+<?php require_once 'view/devises.php' ?>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('templates/layout.php') ?>
