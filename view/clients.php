@@ -6,7 +6,8 @@
                  <div class="card recent-sales overflow-auto">
 
                      <div class="filter">
-                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                         <a class="icon text-secondary " data-bs-toggle="modal" data-bs-target="#exampleModalinsertion" href="#"><i class="bi bi-plus-circle-fill h5 "></i></a>
+                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots h5"></i></a>
                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                              <li class="dropdown-header text-start">
                                  <h6>Filter</h6>
@@ -19,7 +20,7 @@
                      </div>
 
                      <div class="card-body">
-                         <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                         <h5 class="card-title"><?= $Subtitle ?> <span></span></h5>
 
                          <table class="table table-borderless datatable">
                              <thead>
@@ -76,3 +77,29 @@
              </div><!-- End Recent Sales -->
          </div>
      </div><!-- End Left side columns -->
+     <!-- =====================================FORMULAIRE D'INSERTION CATEGORIE=============================-->
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModalinsertion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-md modal-dialog-centered ">
+             <div class="modal-content  ">
+                 <div class="modal-header border-0 ">
+                     <h5 class="modal-title fw-bold text-primary " id="exampleModalLabel">Nouveau Client</h5>
+                     <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <form class="row g-3" method="POST" action="./controller/Categories.php">
+                     <div class="modal-body">
+                         <div class="row justify-content-center">
+                             <div class=" col-md-10 mb-4 mt-2 ">
+                                 <div class="input-group has-validation">
+                                     <input type="text" name="designation" class="form-control" id="yourPassword" placeholder="Désignation" required>
+                                 </div>
+                             </div>
+                             <div class="col-md-12 text-center mt-2">
+                                 <button name="save" class="btn btn-primary w-50 fw-bold" type="submit">Enregistrer</button>
+                             </div>
+                         </div>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>

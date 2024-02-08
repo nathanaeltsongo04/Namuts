@@ -1,9 +1,10 @@
 <?php
-class Categories
+class Services
 {
     private $OPERATION;
-    private $CODECATEGORIE;
+    private $CODESERVICES;
     private $DESIGNATION;
+    private $DESCRIPTION;
     private $AUTEUR;
 
 
@@ -16,14 +17,15 @@ class Categories
     {
         $this->OPERATION = $value;
     }
-    public function getCODECATEGORIE()
+
+    public function getCODESERVICES()
     {
-        return $this->CODECATEGORIE;
+        return $this->CODESERVICES;
     }
 
-    public function setCODECATEGORIE($value)
+    public function setCODESERVICES($value)
     {
-        $this->CODECATEGORIE = $value;
+        $this->CODESERVICES = $value;
     }
 
     public function getDESIGNATION()
@@ -34,6 +36,16 @@ class Categories
     public function setDESIGNATION($value)
     {
         $this->DESIGNATION = $value;
+    }
+
+    public function getDESCRIPTION()
+    {
+        return $this->DESCRIPTION;
+    }
+
+    public function setDESCRIPTION($value)
+    {
+        $this->DESCRIPTION = $value;
     }
 
     public function getAUTEUR()
@@ -51,7 +63,7 @@ class Categories
         $con = new db_connection();
         $connect = $con->openconnection();
         try {
-            $stmt = $connect->prepare(" SELECT * FROM CATEGORIE ");
+            $stmt = $connect->prepare(" SELECT * FROM SERVICES ");
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (Exception $e) {
@@ -63,8 +75,8 @@ class Categories
         $con = new db_connection();
         $connect = $con->openconnection();
         try {
-            $stmt = $connect->prepare(" SELECT * FROM CATEGORIE WHERE CODECATEGORIE=? ");
-            $stmt->bindParam(1, $this->CODECATEGORIE, PDO::PARAM_INT);
+            $stmt = $connect->prepare(" SELECT * FROM SERVICES WHERE CODESERVICES=? ");
+            $stmt->bindParam(1, $this->CODESERVICES, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (Exception $e) {
@@ -73,19 +85,20 @@ class Categories
     }
 
 
-    public function GESTION_CATEGORIE()
+    public function GESTION_SERVICES()
     {
 
         $con = new db_connection();
         $connect = $con->openconnection();
         try {
-            $stmt = $connect->prepare(" CALL GESTION_CATEGORIE(?,?,?,?) ");
+            $stmt = $connect->prepare(" CALL GESTION_SERVICES(?,?,?,?,?) ");
 
             // Liaison des valeurs aux marqueurs de paramètres
             $stmt->bindParam(1, $this->OPERATION, PDO::PARAM_STR);
-            $stmt->bindParam(2, $this->CODECATEGORIE, PDO::PARAM_STR);
+            $stmt->bindParam(2, $this->CODESERVICES, PDO::PARAM_STR);
             $stmt->bindParam(3, $this->DESIGNATION, PDO::PARAM_STR);
-            $stmt->bindParam(4, $this->AUTEUR, PDO::PARAM_STR);
+            $stmt->bindParam(4, $this->DESCRIPTION, PDO::PARAM_STR);
+            $stmt->bindParam(5, $this->AUTEUR, PDO::PARAM_STR);
 
             // Exécution de la procédure stockée
             $stmt->execute();

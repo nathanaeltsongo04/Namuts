@@ -47,7 +47,8 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i class="bi bi-chevron-right ms-auto"></i>
+                <i class="bi bi-layout-text-window-reverse"></i><span>Journal</span><i
+                    class="bi bi-chevron-right ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -101,6 +102,11 @@
                 <li>
                     <a href="Devises.php">
                         <i class="bi bi-circle"></i><span>Devises</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Services.php">
+                        <i class="bi bi-circle"></i><span>Services</span>
                     </a>
                 </li>
                 <li>

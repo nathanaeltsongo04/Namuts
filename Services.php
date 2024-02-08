@@ -2,11 +2,11 @@
 
 <?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $Subtitle = "Liste des Clients"; ?>
+<?php $Subtitle = "Liste des Services"; ?>
 
 <?php ob_start(); ?>
 
-<?php require_once 'view/clients.php' ?>
+<?php require_once 'view/services.php' ?>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -1,8 +1,8 @@
      <?php
         require('./model/db_connection.php');
-        require('./model/Devises.php');
+        require('./model/Services.php');
 
-        $data = new Devises();
+        $data = new Services();
         $all = $data->afficher();
         if (isset($_GET['msg']) == 'true') {
         ?>
@@ -14,7 +14,7 @@ Swal.fire({
     showConfirmButton: false,
     timer: 2800
 }).then(function() {
-    location.replace('Devises.php');
+    location.replace('Services.php');
 });
      </script>
      <?php } ?>
@@ -46,11 +46,9 @@ Swal.fire({
                              <table class="table table-borderless datatable table-responsive table table-striped">
                                  <thead>
                                      <tr>
+                                         <th class="ms-2" scope="row">Code</th>
                                          <th scope="col">Désignation</th>
-                                         <th scope="col">Sigle</th>
-                                         <th scope="col">Taux</th>
-                                         <th scope="col">Symbole</th>
-                                         <th scope="col">Date Taux</th>
+                                         <th scope="col">Description</th>
                                          <th scope="col">Auteur</th>
                                          <th scope="col">Action</th>
                                      </tr>
@@ -60,16 +58,14 @@ Swal.fire({
                                         foreach ($all as $key => $val) {
                                         ?>
                                      <tr>
+                                         <th scope="row"><?= $val['CODESERVICES'] ?></th>
                                          <td><?= $val['DESIGNATION'] ?></td>
-                                         <td><?= $val['SIGLE'] ?></td>
-                                         <td><?= $val['TAUX'] ?></td>
-                                         <td><?= $val['SYMBOLE'] ?></td>
-                                         <td><?= $val['DATE_TAUX'] ?></td>
+                                         <td><?= $val['DESCRIPTION'] ?></td>
                                          <td><?= $val['AUTEUR'] ?></td>
-                                         <td><span data-id='<?= $val['CODEDEVISE'] ?>'
+                                         <td><span data-id='<?= $val['CODESERVICES'] ?>'
                                                  class="badge bg-success elementinfo "><i
                                                      class="bi bi-pencil-fill "></i></span>
-                                             <span data-id='<?= $val['CODEDEVISE'] ?>'
+                                             <span data-id='<?= $val['CODESERVICES'] ?>'
                                                  class="badge bg-danger elementinfo "><i
                                                      class="bi bi-trash-fill "></i></span>
 
@@ -88,17 +84,17 @@ Swal.fire({
              </div><!-- End Recent Sales -->
          </div>
      </div><!-- End Left side columns -->
-     <!-- =====================================FORMULAIRE D'INSERTION DEVISE=============================-->
+     <!-- =====================================FORMULAIRE D'INSERTION UNITE=============================-->
      <!-- Modal -->
      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-md modal-dialog-centered ">
              <div class="modal-content  ">
                  <div class="modal-header border-0 ">
-                     <h5 class="modal-title fw-bold text-primary " id="exampleModalLabel">Nouvelle Devise</h5>
+                     <h5 class="modal-title fw-bold text-primary " id="exampleModalLabel">Nouveau Service</h5>
                      <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal"
                          aria-label="Close"></button>
                  </div>
-                 <form class="row g-3" method="POST" action="./controller/Devises.php">
+                 <form class="row g-3" method="POST" action="./controller/Services.php">
                      <div class="modal-body">
                          <div class="row justify-content-center">
                              <div class=" col-md-10 mb-4 ">
@@ -108,19 +104,10 @@ Swal.fire({
                                  </div>
                              </div>
                              <div class="col-md-10 mb-4">
-                                 <input type="text" name="sigle" class="form-control" id="yourPassword"
-                                     placeholder="Sigle" required>
-
-                             </div>
-                             <div class="col-md-10 mb-4">
-                                 <input type="number" min="0" step=".01" name="taux" class="form-control"
-                                     id="yourPassword" placeholder="2000" required>
-
-                             </div>
-                             <div class="col-md-10 mb-4">
-                                 <input type="text" name="symbole" class="form-control" id="yourPassword"
-                                     placeholder="Symbole ($)" required>
-
+                                 <textarea name="description" class="form-control"
+                                     placeholder="La description du service" id="floatingTextarea2"
+                                     style="height: 200px"></textarea>
+                                 <label for="floatingTextarea2"></label>
                              </div>
                              <div class="col-md-12 text-center">
                                  <button name="save" class="btn btn-primary w-50 fw-bold"
@@ -132,18 +119,18 @@ Swal.fire({
              </div>
          </div>
      </div>
-     <!-- =====================================FORMULAIRE DE MODIFICATION DEVISE=============================-->
+     <!-- =====================================FORMULAIRE DE MODIFICATION UNITE=============================-->
      <!-- Modal -->
      <div class="modal fade" id="exampleModalmodification" tabindex="-1" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
          <div class="modal-dialog modal-md modal-dialog-centered ">
              <div class="modal-content  ">
                  <div class="modal-header border-0 ">
-                     <h5 class="modal-title fw-bold text-success " id="exampleModalLabel">Modification Devise</h5>
+                     <h5 class="modal-title fw-bold text-success " id="exampleModalLabel">Modification Service</h5>
                      <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal"
                          aria-label="Close"></button>
                  </div>
-                 <form class="row g-3" method="POST" action="./controller/Devises.php">
+                 <form class="row g-3" method="POST" action="./controller/Services.php">
                      <div class="modal-body modification">
 
                      </div>
@@ -155,13 +142,13 @@ Swal.fire({
      <script type='text/javascript'>
 $(document).ready(function() {
     $('.elementinfo').click(function() {
-        var codedevise = $(this).data('id');
+        var codeservices = $(this).data('id');
 
         $.ajax({
-            url: './controller/modal_loading/Devises.php',
+            url: './controller/modal_loading/Services.php',
             type: 'POST',
             data: {
-                codedevise: codedevise
+                codeservices: codeservices
             },
             success: function(response) {
                 $('.modification').html(response);
