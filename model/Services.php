@@ -65,9 +65,11 @@ class Services
         try {
             $stmt = $connect->prepare(" SELECT * FROM SERVICES ");
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
     public function afficherById()
@@ -78,9 +80,11 @@ class Services
             $stmt = $connect->prepare(" SELECT * FROM SERVICES WHERE CODESERVICES=? ");
             $stmt->bindParam(1, $this->CODESERVICES, PDO::PARAM_INT);
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
 

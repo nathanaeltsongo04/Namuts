@@ -39,7 +39,7 @@
             </ul>
         </li><!-- End Factures Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="Fournisseurs.php">
                 <i class="bi bi-person-fill"></i>
                 <span>Fournisseurs</span>
             </a>

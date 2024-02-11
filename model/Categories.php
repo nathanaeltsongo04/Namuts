@@ -53,9 +53,11 @@ class Categories
         try {
             $stmt = $connect->prepare(" SELECT * FROM CATEGORIE ");
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
     public function afficherById()
@@ -66,9 +68,11 @@ class Categories
             $stmt = $connect->prepare(" SELECT * FROM CATEGORIE WHERE CODECATEGORIE=? ");
             $stmt->bindParam(1, $this->CODECATEGORIE, PDO::PARAM_INT);
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
 

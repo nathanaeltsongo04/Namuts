@@ -64,9 +64,11 @@ class unites
         try {
             $stmt = $connect->prepare(" SELECT * FROM UNITE ");
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
     public function afficherById()
@@ -77,12 +79,13 @@ class unites
             $stmt = $connect->prepare(" SELECT * FROM UNITE WHERE CODEUNITE=? ");
             $stmt->bindParam(1, $this->CODEUNITE, PDO::PARAM_INT);
             $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            return $e->getMessage();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con->closeConnection(); // Fermeture de la connexion
+            return $result;
+        } catch (PDOException $e) {
+            throw new Exception("Erreur lors de l'exécution de la requête : " . $e->getMessage());
         }
     }
-
 
     public function GESTION_UNITE()
     {
