@@ -9,8 +9,9 @@ foreach ($all as $key => $val) {
 <?php
     echo
     "<div class='row justify-content-center'>
-        <input type='hidden' name='codeclients' value='" . $_POST['codefournisseurs'] . "' >
+        
                               <div class=' col-md-10 mb-2 mt-0 '>
+                              <input type='hidden' value='" . $_POST['codefournisseurs'] . "'name='codefournisseurs'>
                                   <div class='input-group has-validation'>
                                       <input type='text' value='" . $val['NOM'] . "' name='nom' class='form-control' id='yourPassword' placeholder='Nom' required>
                                   </div>
@@ -41,7 +42,7 @@ foreach ($all as $key => $val) {
                                   </div>
                               </div>
                               <div class='col-md-12 text-center mt-2'>
-                                  <button name='save' class='btn btn-primary w-50 fw-bold' type='submit'>Enregistrer</button>
+                                  <button name='update' class='btn btn-success w-50 fw-bold' type='submit'>Modifier</button>
                               </div>
                           </div>";
 }

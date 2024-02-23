@@ -2,7 +2,7 @@
 
 <?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $Subtitle = "Liste des Fournisseurs"; ?>
+<?php $Subtitle = "Gestion des Fournisseurs"; ?>
 
 <?php ob_start(); ?>
 

@@ -1,8 +1,8 @@
 <?php $title = "Namut's"; ?>
 
-<?php $Subtitle = "Produits"; ?>
+<?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $pageTitle = "Liste Des Produits"; ?>
+<?php $Subtitle = "Gestion des Produits"; ?>
 
 <?php ob_start(); ?>
 

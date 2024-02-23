@@ -12,9 +12,9 @@ Swal.fire({
     icon: 'success',
     title: '<?php echo $_GET['info'] ?>',
     showConfirmButton: false,
-    timer: 2800
+    timer: 500
 }).then(function() {
-    location.replace('Catégories.php');
+    //location.replace('Catégories.php');
 });
      </script>
      <?php } ?>

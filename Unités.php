@@ -2,7 +2,7 @@
 
 <?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $Subtitle = "Liste des Unités"; ?>
+<?php $Subtitle = "Gestion des Unités"; ?>
 
 <?php ob_start(); ?>
 

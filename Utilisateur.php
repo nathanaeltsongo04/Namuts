@@ -2,11 +2,11 @@
 
 <?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $Subtitle = "Gestion des Devises"; ?>
+<?php $Subtitle = "Gestion Utilisateurs"; ?>
 
 <?php ob_start(); ?>
 
-<?php require_once 'view/devises.php' ?>
+<?php require_once 'view/utilisateur.php' ?>
 
 <?php $content = ob_get_clean(); ?>
 

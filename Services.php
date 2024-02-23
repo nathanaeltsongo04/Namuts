@@ -2,7 +2,7 @@
 
 <?php $pageTitle = "Tableau de bord"; ?>
 
-<?php $Subtitle = "Liste des Services"; ?>
+<?php $Subtitle = "Gestion des Services"; ?>
 
 <?php ob_start(); ?>
 
